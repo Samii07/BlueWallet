@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import dayjs from 'dayjs';
+import calendar from 'dayjs/plugin/calendar';
 import React, { useContext, useLayoutEffect, useState } from 'react';
 import { FlatList, NativeSyntheticEvent, StyleSheet, View } from 'react-native';
 import { BlueCard, BlueSpacing10, BlueText } from '../../BlueComponents';
@@ -16,7 +17,8 @@ import ListItem from '../../components/ListItem';
 import { useTheme } from '../../components/themes';
 import loc from '../../loc';
 import { FiatUnit, FiatUnitSource, FiatUnitType, getFiatRate } from '../../models/fiatUnit';
-dayjs.extend(require('dayjs/plugin/calendar'));
+
+dayjs.extend(calendar);
 
 const Currency = () => {
   const { setPreferredFiatCurrency } = useContext(BlueStorageContext);
